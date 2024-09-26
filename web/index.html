@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/dots_boxes/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="dots_boxes_game">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/loader.css" />
+
+  <title>Dots and Boxes</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body id="application-body" class="bodyBase">
+<div id="loading">
+  <div class="loader">
+    <div style="--i: 1"></div>
+    <div style="--i: 2"></div>
+    <div style="--i: 3"></div>
+    <div style="--i: 4"></div>
+  </div>
+</div>
+  <script async>
+    {{flutter_js}}
+    {{flutter_build_config}}
+
+    const loadingBase = document.getElementById('loading');
+    const applicationBody = document.getElementById('application-body');
+
+    const searchParams = new URLSearchParams(window.location.search);
+    const renderer = searchParams.get('renderer');
+    const userConfig = renderer ? {'renderer': renderer} : {};
+
+    _flutter.loader.load({
+      config: userConfig,
+      serviceWorkerSettings: {
+        serviceWorkerVersion: {{flutter_service_worker_version}},
+      },
+      onEntrypointLoaded: async function(engineInitializer) {
+        const appRunner = await engineInitializer.initializeEngine();
+
+        await appRunner.runApp();
+        loadingBase.remove();
+         // remove the body loader class
+        applicationBody.classList.remove('bodyBase');
+      }
+    });
+  </script>
+  <script src="https://telegram.org/js/telegram-web-app.js" async>
+  </script>
+</body>
+</html>

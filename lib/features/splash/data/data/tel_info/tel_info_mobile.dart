@@ -4,8 +4,6 @@ import 'package:dots_boxes_game/features/splash/domain/entities/tel_info/tel_inf
 class TelegramInfoImp implements TelegramAppInfo{
   @override
   Future<TelInfoEntity> getTelegramAppInfo() {
-    // TODO: implement getTelegramAppInfo
-    print('hello');
-    throw UnimplementedError();
+    throw Error();
   }
 }

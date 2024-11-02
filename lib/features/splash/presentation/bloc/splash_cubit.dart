@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dots_boxes_game/features/splash/data/repo/token_service.dart';
 import 'package:dots_boxes_game/features/splash/domain/entities/tel_info/tel_info_entity.dart';
@@ -26,6 +28,8 @@ class SplashCubit extends Cubit<SplashState> {
       ));
 
       return value;
+    }).catchError((e) {
+      log('There is error');
     });
   }
 

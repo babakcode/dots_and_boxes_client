@@ -34,7 +34,7 @@ class _EnvVarsProd implements EnvVars{
   String get gqlBaseUrl => 'https://win-wealth.babakcode.com/graphql';
 
   @override
-  String get socketBaseUrl => 'https://win-wealth-socket.babakcode.com/dots-boxes';
+  String get socketBaseUrl => 'https://wss.babakcode.com/dots-boxes';
 
   @override
   EnvMode get mode => EnvMode.prod;
@@ -46,7 +46,7 @@ class _EnvVarsStage implements EnvVars{
   String get gqlBaseUrl => 'https://win-wealth.babakcode.com/graphql';
 
   @override
-  String get socketBaseUrl => 'https://win-wealth-socket.babakcode.com/dots-boxes';
+  String get socketBaseUrl => 'https://wss.babakcode.com/dots-boxes';
 
   @override
   EnvMode get mode => EnvMode.stage;

@@ -10,9 +10,11 @@ class AppSocketIOClientImpl implements AppSocketClient{
       _socket =  io.io(socketBaseUrl,
           io.OptionBuilder()
               .setTransports(['websocket'])
+              .setPath('/win-wealth/')
               .disableAutoConnect()
               .build()
       ){
+    print('start connecting to socket');
     _socket.onConnect((data) {
       print('[Socket]: connected');
       onConnect?.call();
